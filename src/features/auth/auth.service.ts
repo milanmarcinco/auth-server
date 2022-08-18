@@ -9,7 +9,7 @@ import HttpException from "../../errors/HttpException";
 import {
   registerBody,
   logInBody,
-  renewTokenBody,
+  renewTokensBody,
   changePasswordBody,
   logOutBody,
   logOutAllBody,
@@ -146,9 +146,9 @@ export const logIn: Handler = async (req, res, next) => {
   }
 };
 
-export const renewToken: Handler = async (req, res, next) => {
+export const renewTokens: Handler = async (req, res, next) => {
   try {
-    const result = renewTokenBody.safeParse(req.body);
+    const result = renewTokensBody.safeParse(req.body);
     if (!result.success)
       throw new HttpException({ message: result.error.errors[0].message, statusCode: StatusCodes.BAD_REQUEST });
 

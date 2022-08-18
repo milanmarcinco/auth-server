@@ -21,7 +21,7 @@ export const logInBody = z.object({
     .min(1, "Password is required to log in"),
 });
 
-export const renewTokenBody = z.object({
+export const renewTokensBody = z.object({
   refreshToken: z
     .string({
       required_error: "A valid refresh token is required",
